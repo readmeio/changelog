@@ -1,5 +1,5 @@
 {
-  "name": "readme-changelog",
+  "name": "@readme/changelog",
   "description": "Changelog generator in use at ReadMe",
   "version": "0.0.0",
   "dependencies": {},
@@ -17,7 +17,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git@github.com:domharrington/readme-changelog.git"
+    "url": "git@github.com:readme/changelog.git"
   },
   "devDependencies": {
     "eslint": "^4.14.0",
