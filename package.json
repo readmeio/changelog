@@ -1,0 +1,30 @@
+{
+  "name": "readme-changelog",
+  "description": "Changelog generator in use at ReadMe",
+  "version": "0.0.0",
+  "dependencies": {},
+  "scripts": {
+    "lint": "eslint -f unix .",
+    "inspect": "jsinspect",
+    "pretest": "npm run lint && npm run inspect",
+    "test": "nyc mocha",
+    "posttest": "nyc check-coverage --statements 90 --branches 70 --functions 90 --lines 90"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "author": "Dom Harrington <dom@harrington-mail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:domharrington/readme-changelog.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jsinspect": "^0.12.7",
+    "mocha": "^5.0.0",
+    "nyc": "^11.2.1"
+  }
+}
