@@ -28,7 +28,7 @@ async function main() {
 
   const commits = await gitlog({ repo: process.cwd(), fields: ['subject', 'authorDate', 'body'], since });
 
-  await writeFile(outputFile, JSON.stringify(changelog(commits).concat(output)));
+  await writeFile(outputFile, JSON.stringify(changelog(commits).concat(output), null, 2));
 }
 
 main().catch((e) => {
