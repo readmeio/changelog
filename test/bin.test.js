@@ -5,8 +5,17 @@ const os = require('os');
 const moment = require('moment');
 const assert = require('assert');
 const rimraf = require('rimraf');
+const which = require('which');
 const { mkdtempSync } = require('fs');
 const { resolve, join } = require('path');
+
+const gitExecutable = which.sync('git');
+
+function spawn(cmd, args, opts) {
+  const { stderr, stdout } = cp.spawnSync(cmd, args, opts);
+
+  if (stderr && stderr.toString()) throw new Error(stderr.toString());
+}
 
 function makeCommits(cwd, msg = '', date = moment()) {
   const opts = {
@@ -16,10 +25,11 @@ function makeCommits(cwd, msg = '', date = moment()) {
       GIT_AUTHOR_DATE: date.toISOString(),
     },
   };
-  cp.spawnSync('git', ['init'], opts);
-  cp.spawnSync('git', ['commit', '-m', `[feature][new] new feature ${msg}`, '--allow-empty'], opts);
-  cp.spawnSync('git', ['commit', '-m', `non-changelog worthy commit ${msg}`, '--allow-empty'], opts);
-  cp.spawnSync('git', ['commit', '-m', `[feature][fixed] fixed bug feature ${msg}`, '--allow-empty'], opts);
+
+  spawn(gitExecutable, ['init'], opts);
+  spawn(gitExecutable, ['commit', '-m', `[feature][new] new feature ${msg}`, '--allow-empty'], opts);
+  spawn(gitExecutable, ['commit', '-m', `non-changelog worthy commit ${msg}`, '--allow-empty'], opts);
+  spawn(gitExecutable, ['commit', '-m', `[feature][fixed] fixed bug feature ${msg}`, '--allow-empty'], opts);
 }
 
 function spawnChangelog(cwd) {
