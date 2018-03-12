@@ -2,7 +2,9 @@
   "name": "@readme/changelog",
   "description": "Changelog generator in use at ReadMe",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gitlog": "^3.1.2"
+  },
   "scripts": {
     "lint": "eslint -f unix .",
     "inspect": "jsinspect",
@@ -25,6 +27,8 @@
     "eslint-plugin-import": "^2.8.0",
     "jsinspect": "^0.12.7",
     "mocha": "^5.0.0",
-    "nyc": "^11.2.1"
+    "moment": "^2.21.0",
+    "nyc": "^11.2.1",
+    "rimraf": "^2.6.2"
   }
 }
