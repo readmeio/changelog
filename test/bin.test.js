@@ -12,7 +12,7 @@ const { resolve, join } = require('path');
 const gitExecutable = which.sync('git');
 
 function spawn(cmd, args, opts) {
-  const { stderr, stdout } = cp.spawnSync(cmd, args, opts);
+  const { stderr } = cp.spawnSync(cmd, args, opts);
 
   if (stderr && stderr.toString()) throw new Error(stderr.toString());
 }

@@ -31,6 +31,7 @@ async function main() {
   await writeFile(outputFile, JSON.stringify(changelog(commits).concat(output), null, 2));
 }
 
+/* istanbul ignore next */
 main().catch((e) => {
   console.error(e); // eslint-disable-line no-console
   process.exit(1);
