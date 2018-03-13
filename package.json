@@ -1,7 +1,7 @@
 {
   "name": "@readme/changelog",
   "description": "Changelog generator in use at ReadMe",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "bin": {
     "changelog": "bin/changelog.js"
   },
