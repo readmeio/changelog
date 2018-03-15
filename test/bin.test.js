@@ -27,6 +27,8 @@ function makeCommits(cwd, msg = '', date = moment()) {
   };
 
   spawn(gitExecutable, ['init'], opts);
+  spawn(gitExecutable, ['config', 'user.email', 'you@example.com'], opts);
+  spawn(gitExecutable, ['config', 'user.name', 'Your Name'], opts);
   spawn(gitExecutable, ['commit', '-m', `[feature][new] new feature ${msg}`, '--allow-empty'], opts);
   spawn(gitExecutable, ['commit', '-m', `non-changelog worthy commit ${msg}`, '--allow-empty'], opts);
   spawn(gitExecutable, ['commit', '-m', `[feature][fixed] fixed bug feature ${msg}`, '--allow-empty'], opts);
